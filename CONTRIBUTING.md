@@ -53,4 +53,4 @@ When a change affects one of these areas, update the matching file in the same P
 
 ## License
 
-By contributing, you agree that your contribution will be released under the [MIT License](LICENSE).
+By contributing, you agree that your contribution will be released under the [MIT License](README.md#license).
