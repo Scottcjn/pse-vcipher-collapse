@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * bench_vcipher_collapse.c — Benchmark: vcipher collapse vs vec_perm collapse
  *

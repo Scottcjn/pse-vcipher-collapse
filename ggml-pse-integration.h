@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * GGML PSE Integration - Master Header for POWER8/9
  * Elyan Labs 2025

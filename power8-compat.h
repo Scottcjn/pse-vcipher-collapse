@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * power8-compat.h - POWER8 vec_xl/vec_xst compatibility
  *

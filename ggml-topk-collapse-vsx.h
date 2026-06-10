@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * ggml-topk-collapse-vsx.h - Top-K Attention Collapse for POWER8
  *

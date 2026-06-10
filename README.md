@@ -1,3 +1,5 @@
+[![BCOS Certified](https://img.shields.io/badge/BCOS-Certified-brightgreen?style=flat)](BCOS.md)
+
 # PSE: Non-Bijunctive Attention Collapse for LLM Inference
 
 **Proto-Sentient Emergence (PSE)** — a hardware-accelerated attention mechanism that replaces standard bijunctive (full-matrix) dot products with selective path collapse using POWER8 vector instructions.

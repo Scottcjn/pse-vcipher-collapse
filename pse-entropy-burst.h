@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * pse-entropy-burst.h - Incremental Burst PSE Entropy for llama.cpp
  *

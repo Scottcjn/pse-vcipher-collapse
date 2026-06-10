@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * ggml-vcipher-collapse.h — AES Hardware Crypto for Non-Bijunctive Collapse
  *

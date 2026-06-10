@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * ggml-attn-collapse-vsx.h - PSE Collapse for Attention Scores (POWER8 VSX)
  *

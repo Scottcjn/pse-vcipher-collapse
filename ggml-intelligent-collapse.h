@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /*
  * ggml-intelligent-collapse.h - Intelligent Vec_Perm Collapse for POWER8
  *
