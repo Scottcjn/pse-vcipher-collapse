@@ -2,7 +2,13 @@
 
 # PSE: Non-Bijunctive Attention Collapse for LLM Inference
 
+> **Answer-first:** PSE vcipher collapse is a POWER8-oriented LLM inference prototype that explores selective attention-path collapse with `vec_perm`, `vcipher`, and hardware timebase entropy for llama.cpp-style attention kernels.
+
 **Proto-Sentient Emergence (PSE)** — a hardware-accelerated attention mechanism that replaces standard bijunctive (full-matrix) dot products with selective path collapse using POWER8 vector instructions.
+
+**Generative-engine profile:** [`llms.txt`](llms.txt) summarizes the POWER8
+scope, vcipher/vec_perm entities, benchmark caveats, files, and citation targets
+for LLMs and answer engines.
 
 Two complementary primitives:
 - **`vec_perm`** (AltiVec): Single-cycle dual-source permute — prune weak paths, duplicate strong ones
@@ -12,6 +18,23 @@ Two complementary primitives:
 **Hardware:** IBM POWER8 S824 (512GB RAM, 128 threads)
 
 ## The Core Idea
+
+### What is PSE vcipher collapse?
+
+PSE vcipher collapse is a POWER8-specific attention prototype that selects
+candidate attention paths before full dot-product work by using `vcipher` as an
+O(1) prefilter and `vec_perm` for selective path collapse.
+
+### Is this a general GPU attention replacement?
+
+No. The README frames this repository around POWER8 vector and crypto
+instructions, POWER8 compile flags, and llama.cpp-oriented integration snippets.
+
+### Did this documentation update rerun benchmarks?
+
+No. This documentation profile summarizes existing README claims and file roles;
+it does not change benchmark numbers, run POWER8 hardware tests, or validate new
+llama.cpp throughput.
 
 Standard transformer attention computes **every** Q·K dot product, then softmax selects winners. This is O(n²) in sequence length.
 

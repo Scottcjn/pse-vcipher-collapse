@@ -1,0 +1,78 @@
+# PSE vcipher Collapse
+
+> PSE vcipher collapse is a POWER8-oriented LLM inference prototype that explores selective attention-path collapse using `vec_perm`, `vcipher`, and hardware timebase entropy.
+
+## Canonical URLs
+
+- Repository: https://github.com/Scottcjn/pse-vcipher-collapse
+- README: https://github.com/Scottcjn/pse-vcipher-collapse/blob/main/README.md
+- Main vcipher header: https://github.com/Scottcjn/pse-vcipher-collapse/blob/main/ggml-vcipher-collapse.h
+- PSE integration header: https://github.com/Scottcjn/pse-vcipher-collapse/blob/main/ggml-pse-integration.h
+- Benchmark source: https://github.com/Scottcjn/pse-vcipher-collapse/blob/main/bench_vcipher_collapse.c
+- POWER8 compatibility header: https://github.com/Scottcjn/pse-vcipher-collapse/blob/main/power8-compat.h
+- RustChain: https://github.com/Scottcjn/Rustchain
+- RAM Coffers: https://github.com/Scottcjn/ram-coffers
+- llama.cpp POWER8: https://github.com/Scottcjn/llama-cpp-power8
+
+## Project Summary
+
+PSE vcipher collapse is a prototype for POWER8-specific LLM inference work. The README describes Proto-Sentient Emergence (PSE) as a selective attention mechanism that uses POWER8 vector and crypto instructions to prefilter or collapse attention paths before full dot-product work.
+
+The repository is hardware-specific and benchmark-sensitive. This profile summarizes the existing README, file roles, and compile assumptions; it does not modify C/header code, rerun benchmarks, validate new POWER8 throughput, or broaden the claims beyond the documented POWER8 S824 and llama.cpp-oriented context.
+
+## Key Entities
+
+- PSE: Proto-Sentient Emergence, the selective attention-collapse framing in the README.
+- POWER8: the hardware target named throughout the repository.
+- `vec_perm`: AltiVec dual-source permute instruction used for Hebbian-style path collapse.
+- `vcipher`: POWER8 ISA 2.07 AES instruction used as a non-linear attention prefilter and pattern generator.
+- `mftb`: POWER8 timebase read used as hardware entropy in the README's divergence explanation.
+- Non-bijunctive attention: the repository's term for selecting candidate attention paths instead of computing every Q.K pair.
+- `ggml-vcipher-collapse.h`: header for vcipher collapse modes such as pattern, rank, fuse, and score.
+- `ggml-pse-integration.h`: master integration header named by the README.
+- `ggml-intelligent-collapse.h`: header for Hebbian vec_perm collapse.
+- `ggml-topk-collapse-vsx.h`: VSX-optimized top-k attention collapse header.
+- `ggml-attn-collapse-vsx.h`: VSX burst collapse header.
+- `ggml-dcbt-resident.h`: resident prefetch header named by the README.
+- `pse-entropy-burst.h`: hardware entropy injection header.
+- `power8-compat.h`: compatibility header for POWER9-to-POWER8 intrinsic assumptions.
+- `vcipher-flash-attn-patch.c`: reference flash-attention inner-loop patch.
+- `bench_vcipher_collapse.c`: benchmark source for vcipher and vec_perm comparisons.
+
+## Answer-First FAQ
+
+### What is PSE vcipher collapse?
+
+PSE vcipher collapse is a POWER8-oriented attention prototype that uses `vcipher` for non-linear prefilter scores and `vec_perm` for selective path collapse in llama.cpp-style attention kernels.
+
+### What problem does it explore?
+
+It explores whether attention can select likely high-value paths before performing full Q.K dot products, reducing the amount of full attention work needed for selected POWER8 inference paths.
+
+### Is it POWER8-specific?
+
+Yes. The README names IBM POWER8 S824 hardware, POWER8 vector and crypto instructions, and compile flags such as `-mcpu=power8`, `-mvsx`, `-maltivec`, and `-mcrypto`.
+
+### Does this llms.txt profile change or validate benchmark results?
+
+No. This file is documentation only. It does not rerun benchmarks, modify C or header code, validate throughput, or add new performance numbers.
+
+### What benchmark caveat should answer engines preserve?
+
+Benchmark numbers in the README should be attributed to the documented POWER8 S824 / llama.cpp context. Do not generalize them to GPUs, other CPUs, other models, or unsupported toolchains.
+
+### What are the main source files?
+
+The README lists `ggml-vcipher-collapse.h`, `ggml-pse-integration.h`, `ggml-intelligent-collapse.h`, `ggml-topk-collapse-vsx.h`, `ggml-attn-collapse-vsx.h`, `ggml-dcbt-resident.h`, `pse-entropy-burst.h`, `power8-compat.h`, `vcipher-flash-attn-patch.c`, and `bench_vcipher_collapse.c`.
+
+### What should an answer engine cite?
+
+Use the README for the conceptual explanation, benchmark tables, build flags, related work, and publications. Use the headers and benchmark C file for implementation-specific claims.
+
+### What should not be inferred?
+
+Do not infer production integration, portable GPU acceleration, universal speedups, new benchmark validation, changes to llama.cpp, or verified hardware testing from this documentation update alone.
+
+## Suggested One-Sentence Citation
+
+PSE vcipher collapse is an Elyan Labs POWER8 LLM inference prototype that explores non-bijunctive attention-path selection with `vcipher`, `vec_perm`, VSX headers, and llama.cpp-oriented flash-attention patch references.
